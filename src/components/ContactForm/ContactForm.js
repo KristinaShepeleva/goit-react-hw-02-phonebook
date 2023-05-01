@@ -10,18 +10,23 @@ state = {
 
   reset = () => {
     this.setState({
-      userName: '',
+      name: '',
       number: '',
     });
   };  
      
   handleSubmit = evn => {
+    
     evn.preventDefault();
       this.props.onSubmit(this.state );
       this.reset();
   };  
      
   handleChange = evn => {
+    //const { name, number } = this.state;
+  //   this.setState({
+  //      [name]: value,
+  //  });
     this.setState({
        [evn.currentTarget.name]: evn.target.value,
    });
@@ -33,7 +38,7 @@ state = {
         const { name, number } = this.state;
         return (
     <form className={css.form} onSubmit={this.handleSubmit}>
-     <label className={css.label} htmlFor="name">
+     <label className={css.label}>
           Name
           <input className={css.input}
             type="text"
@@ -45,7 +50,7 @@ state = {
   required
           />
     </label>
-       <label className={css.label} htmlFor="number">
+       <label className={css.label}>
             Number
             <input className={css.input}
               type="tel"
